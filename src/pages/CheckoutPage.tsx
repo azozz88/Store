@@ -28,7 +28,20 @@ const CheckoutPage = () => {
     notes: ""
   });
   
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // UAE Cities for selection
+  const uaeCities = [
+    "أبوظبي",
+    "دبي",
+    "الشارقة",
+    "عجمان",
+    "أم القيوين",
+    "رأس الخيمة",
+    "الفجيرة",
+    "العين",
+    "خورفكان"
+  ];
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -132,6 +145,7 @@ const CheckoutPage = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
+                    placeholder="+971"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -146,13 +160,19 @@ const CheckoutPage = () => {
                 </div>
                 <div>
                   <Label htmlFor="city">المدينة</Label>
-                  <Input
+                  <select
                     id="city"
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
                     required
-                  />
+                    className="w-full h-10 px-3 rounded-md border border-input bg-background"
+                  >
+                    <option value="" disabled>اختر المدينة</option>
+                    {uaeCities.map(city => (
+                      <option key={city} value={city}>{city}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <Label htmlFor="postalCode">الرمز البريدي</Label>
@@ -194,7 +214,7 @@ const CheckoutPage = () => {
                     <RadioGroupItem value="standard" id="shipping-standard" />
                     <Label htmlFor="shipping-standard" className="mr-2 cursor-pointer">
                       <div>الشحن القياسي</div>
-                      <div className="text-sm text-gray-500">توصيل خلال 3-5 أيام عمل</div>
+                      <div className="text-sm text-gray-500">توصيل خلال 2-3 أيام عمل</div>
                     </Label>
                   </div>
                   <div className="font-semibold">25 د.إ</div>
@@ -205,7 +225,7 @@ const CheckoutPage = () => {
                     <RadioGroupItem value="express" id="shipping-express" />
                     <Label htmlFor="shipping-express" className="mr-2 cursor-pointer">
                       <div>الشحن السريع</div>
-                      <div className="text-sm text-gray-500">توصيل خلال 1-2 يوم عمل</div>
+                      <div className="text-sm text-gray-500">توصيل خلال يوم عمل واحد</div>
                     </Label>
                   </div>
                   <div className="font-semibold">45 د.إ</div>

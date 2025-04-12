@@ -16,10 +16,10 @@ const HomePage = () => {
       <PromoBanner />
       
       <div className="mt-8 mb-4 text-center">
-        <Button asChild variant="outline">
+        <Button asChild variant="default">
           <Link to="/admin" className="flex items-center">
             <BarChart3 className="h-4 w-4 ml-2" />
-            لوحة التحكم
+            لوحة الإدارة
           </Link>
         </Button>
       </div>
