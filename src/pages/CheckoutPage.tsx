@@ -51,7 +51,7 @@ const CheckoutPage = () => {
   };
   
   // Calculate totals
-  const shipping = shippingMethod === "express" ? 30 : 15;
+  const shipping = shippingMethod === "express" ? 45 : 25;
   const total = totalPrice + shipping;
   
   // If cart is empty, redirect to cart page
@@ -197,7 +197,7 @@ const CheckoutPage = () => {
                       <div className="text-sm text-gray-500">توصيل خلال 3-5 أيام عمل</div>
                     </Label>
                   </div>
-                  <div className="font-semibold">15 ر.س</div>
+                  <div className="font-semibold">25 د.إ</div>
                 </div>
                 
                 <div className="flex items-center justify-between border rounded-lg p-4">
@@ -208,7 +208,7 @@ const CheckoutPage = () => {
                       <div className="text-sm text-gray-500">توصيل خلال 1-2 يوم عمل</div>
                     </Label>
                   </div>
-                  <div className="font-semibold">30 ر.س</div>
+                  <div className="font-semibold">45 د.إ</div>
                 </div>
               </RadioGroup>
             </div>
@@ -228,8 +228,8 @@ const CheckoutPage = () => {
                 <div className="flex items-center border rounded-lg p-4">
                   <RadioGroupItem value="credit_card" id="payment-cc" />
                   <Label htmlFor="payment-cc" className="mr-2 cursor-pointer">
-                    <div>بطاقة ائتمان / بطاقة مدى</div>
-                    <div className="text-sm text-gray-500">Visa, Mastercard, American Express, Mada</div>
+                    <div>بطاقة ائتمان</div>
+                    <div className="text-sm text-gray-500">Visa, Mastercard, American Express</div>
                   </Label>
                 </div>
                 
@@ -290,7 +290,7 @@ const CheckoutPage = () => {
                     </div>
                   </div>
                   <div className="text-sm font-medium">
-                    {(item.price * item.quantity).toFixed(2)} ر.س
+                    {(item.price * item.quantity).toFixed(2)} د.إ
                   </div>
                 </div>
               ))}
@@ -299,17 +299,17 @@ const CheckoutPage = () => {
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-gray-600">مجموع المنتجات</span>
-                <span>{totalPrice.toFixed(2)} ر.س</span>
+                <span>{totalPrice.toFixed(2)} د.إ</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">الشحن ({shippingMethod === "express" ? "سريع" : "قياسي"})</span>
-                <span>{shipping.toFixed(2)} ر.س</span>
+                <span>{shipping.toFixed(2)} د.إ</span>
               </div>
               
               <div className="pt-2 border-t mt-2">
                 <div className="flex justify-between font-bold">
                   <span>المجموع</span>
-                  <span className="text-primary">{total.toFixed(2)} ر.س</span>
+                  <span className="text-primary">{total.toFixed(2)} د.إ</span>
                 </div>
               </div>
             </div>
